@@ -50,85 +50,132 @@ print("\nYour batch instructions are as follows: ")
 # Determine batch size, regular or bulk
 
 # Size is under min, proceed with regular pricing
-if batchSize < bulkBatchSizeMin:
-    print("      COST   QUANTITY   ITEM")  # table header
+if 0 < batchSize < bulkBatchSizeMin:
+    print("      COST   QUANTITY  UNIT  ITEM")  # table header
     # Salted Butter
-    print("{:10.2f}".format(unitCostSaltedButter * batchSize * numGSaltedButter), \
-          "{:10.2f}".format(numGSaltedButter * batchSize), \
-          '  Salted Butter')
+    print("{:10.2f}".format(unitCostSaltedButter * batchSize * numGSaltedButter)
+          , "{:10.2f}".format(numGSaltedButter * batchSize)
+          , " g  "
+          , "  Salted Butter")
     # Brown Sugar
-    print("{:10.2f}".format(unitCostBrownSugar * batchSize * numGBrownSugar), \
-          "{:10.2f}".format(numGBrownSugar * batchSize), \
-          '  Brown Sugar')
+    print("{:10.2f}".format(unitCostBrownSugar * batchSize * numGBrownSugar)
+          , "{:10.2f}".format(numGBrownSugar * batchSize)
+          , " g  "
+          , "  Brown Sugar")
     # White Sugar
-    print("{:10.2f}".format(unitCostWhiteSugar * batchSize * numGWhiteSugar), \
-          "{:10.2f}".format(numGWhiteSugar * batchSize), \
-          '  White Sugar')
+    print("{:10.2f}".format(unitCostWhiteSugar * batchSize * numGWhiteSugar)
+          , "{:10.2f}".format(numGWhiteSugar * batchSize)
+          , " g  "
+          , "  White Sugar")
     # Vanilla
-    print("{:10.2f}".format(unitCostVanilla * batchSize * numTspVanilla), \
-          "{:10.2f}".format(numTspVanilla * batchSize), \
-          '  Vanilla')
+    print("{:10.2f}".format(unitCostVanilla * batchSize * numTspVanilla)
+          , "{:10.2f}".format(numTspVanilla * batchSize)
+          , " tsp"
+          , "  Vanilla")
     # Egg
-    print("{:10.2f}".format(unitCostEgg * batchSize * numEaEgg), \
-          "{:10.2f}".format(numEaEgg * batchSize), \
-          '  Eggs')
+    print("{:10.2f}".format(unitCostEgg * batchSize * numEaEgg)
+          , "{:10.2f}".format(numEaEgg * batchSize)
+          , " ea "
+          , "  Eggs")
     # White Flour
-    print("{:10.2f}".format(unitCostWhiteFlour * batchSize * numGWhiteFlour), \
-          "{:10.2f}".format(numGWhiteFlour * batchSize), \
-          '  White Flour')
+    print("{:10.2f}".format(unitCostWhiteFlour * batchSize * numGWhiteFlour)
+          , "{:10.2f}".format(numGWhiteFlour * batchSize)
+          , " g  "
+          , "  White Flour")
     # Baking Soda
-    print("{:10.2f}".format(unitCostBakingSoda * batchSize * numTspBakingSoda), \
-          "{:10.2f}".format(numTspBakingSoda * batchSize), \
-          '  Baking Soda')
+    print("{:10.2f}".format(unitCostBakingSoda * batchSize * numTspBakingSoda)
+          , "{:10.2f}".format(numTspBakingSoda * batchSize)
+          , " tsp"
+          , "  Baking Soda")
     # Salt
-    print("{:10.2f}".format(unitCostSalt * batchSize * numTspSalt), \
-          "{:10.2f}".format(numTspSalt * batchSize), \
-          '  Salt')
+    print("{:10.2f}".format(unitCostSalt * batchSize * numTspSalt)
+          , "{:10.2f}".format(numTspSalt * batchSize)
+          , " tsp"
+          , "  Salt")
     # Chocolate Chip
-    print("{:10.2f}".format(unitCostChocolateChip * batchSize * numGChocolateChip), \
-          "{:10.2f}".format(numGChocolateChip * batchSize), \
-          '  Chocolate Chips')
+    print("{:10.2f}".format(unitCostChocolateChip * batchSize * numGChocolateChip)
+          , "{:10.2f}".format(numGChocolateChip * batchSize)
+          , " g  "
+          , "  Chocolate Chips")
+    # TOTAL COST
+    print("=" * 44)  # separator
+    print("$"
+          , "{:8.2f}".format(unitCostSaltedButter * batchSize * numGSaltedButter
+                           + unitCostBrownSugar * batchSize * numGBrownSugar
+                           + unitCostWhiteSugar * batchSize * numGWhiteSugar
+                           + unitCostVanilla * batchSize * numTspVanilla
+                           + unitCostEgg * batchSize * numEaEgg
+                           + unitCostWhiteFlour * batchSize * numGWhiteFlour
+                           + unitCostBakingSoda * batchSize * numTspBakingSoda
+                           + unitCostSalt * batchSize * numTspSalt
+                           + unitCostChocolateChip * batchSize * numGChocolateChip)
+          , "    TOTAL COST OF BATCH"
+          )
 
 
 # Size is over minimum, use bulk pricing
 elif batchSize >= bulkBatchSizeMin:
-    print("      COST   QUANTITY   ITEM")  # table header
+    print("      COST   QUANTITY  UNIT  ITEM")  # table header
     # Salted Butter
-    print("{:10.2f}".format(unitBulkCostSaltedButter * batchSize * numGSaltedButter), \
-          "{:10.2f}".format(numGSaltedButter * batchSize), \
-          '  Salted Butter')
+    print("{:10.2f}".format(unitBulkCostSaltedButter * batchSize * numGSaltedButter)
+          , "{:10.2f}".format(numGSaltedButter * batchSize)
+          , " g  "
+          , "  Salted Butter")
     # Brown Sugar
-    print("{:10.2f}".format(unitBulkCostBrownSugar * batchSize * numGBrownSugar), \
-          "{:10.2f}".format(numGBrownSugar * batchSize), \
-          '  Brown Sugar')
+    print("{:10.2f}".format(unitBulkCostBrownSugar * batchSize * numGBrownSugar)
+          , "{:10.2f}".format(numGBrownSugar * batchSize)
+          , " g  "
+          , "  Brown Sugar")
     # White Sugar
-    print("{:10.2f}".format(unitBulkCostWhiteSugar * batchSize * numGWhiteSugar), \
-          "{:10.2f}".format(numGWhiteSugar * batchSize), \
-          '  White Sugar')
+    print("{:10.2f}".format(unitBulkCostWhiteSugar * batchSize * numGWhiteSugar)
+          , "{:10.2f}".format(numGWhiteSugar * batchSize)
+          , " g  "
+           , "  White Sugar")
     # Vanilla
-    print("{:10.2f}".format(unitBulkCostVanilla * batchSize * numTspVanilla), \
-          "{:10.2f}".format(numTspVanilla * batchSize), \
-          '  Vanilla')
+    print("{:10.2f}".format(unitBulkCostVanilla * batchSize * numTspVanilla)
+          , "{:10.2f}".format(numTspVanilla * batchSize)
+          , " tsp"
+          , "  Vanilla")
     # Egg
-    print("{:10.2f}".format(unitBulkCostEgg * batchSize * numEaEgg), \
-          "{:10.2f}".format(numEaEgg * batchSize), \
-          '  Eggs')
+    print("{:10.2f}".format(unitBulkCostEgg * batchSize * numEaEgg)
+          , "{:10.2f}".format(numEaEgg * batchSize)
+          , " ea "
+          , "  Eggs")
     # White Flour
-    print("{:10.2f}".format(unitBulkCostWhiteFlour * batchSize * numGWhiteFlour), \
-          "{:10.2f}".format(numGWhiteFlour * batchSize), \
-          '  White Flour')
+    print("{:10.2f}".format(unitBulkCostWhiteFlour * batchSize * numGWhiteFlour)
+          , "{:10.2f}".format(numGWhiteFlour * batchSize)
+          , " g  "
+          , "  White Flour")
     # Baking Soda
-    print("{:10.2f}".format(unitBulkCostBakingSoda * batchSize * numTspBakingSoda), \
-          "{:10.2f}".format(numTspBakingSoda * batchSize), \
-          '  Baking Soda')
+    print("{:10.2f}".format(unitBulkCostBakingSoda * batchSize * numTspBakingSoda)
+          , "{:10.2f}".format(numTspBakingSoda * batchSize)
+          , " tsp"
+          , "  Baking Soda")
     # Salt
-    print("{:10.2f}".format(unitBulkCostSalt * batchSize * numTspSalt), \
-          "{:10.2f}".format(numTspSalt * batchSize), \
-          '  Salt')
+    print("{:10.2f}".format(unitBulkCostSalt * batchSize * numTspSalt)
+          , "{:10.2f}".format(numTspSalt * batchSize)
+          , " tsp"
+          , "  Salt")
     # Chocolate Chip
-    print("{:10.2f}".format(unitBulkCostChocolateChip * batchSize * numGChocolateChip), \
-          "{:10.2f}".format(numGChocolateChip * batchSize), \
-          '  Chocolate Chips')
+    print("{:10.2f}".format(unitBulkCostChocolateChip * batchSize * numGChocolateChip)
+          , "{:10.2f}".format(numGChocolateChip * batchSize)
+          , " g  "
+          , "  Chocolate Chips")
+    # TOTAL COST
+    print("=" * 44)  # separator
+    print("$"
+          , "{:8.2f}".format(unitBulkCostSaltedButter * batchSize * numGSaltedButter
+                           + unitBulkCostBrownSugar * batchSize * numGBrownSugar
+                           + unitBulkCostWhiteSugar * batchSize * numGWhiteSugar
+                           + unitBulkCostVanilla * batchSize * numTspVanilla
+                           + unitBulkCostEgg * batchSize * numEaEgg
+                           + unitBulkCostWhiteFlour * batchSize * numGWhiteFlour
+                           + unitBulkCostBakingSoda * batchSize * numTspBakingSoda
+                           + unitBulkCostSalt * batchSize * numTspSalt
+                           + unitBulkCostChocolateChip * batchSize * numGChocolateChip)
+          , "    TOTAL COST OF BATCH"
+          )
 
+# batchSize entered was out of range, error!
 else:
     print("I'm sorry, you cannot make that many cookies!")
