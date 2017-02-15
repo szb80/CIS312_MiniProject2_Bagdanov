@@ -1,12 +1,19 @@
 # CIS312 Final Project
 # Created by Seth Bagdanov 2/7/2017
 # Calculates and displays a recipe based on the batch size
+#
+# REFERENCES -----
+# PRICING: http://grocery.walmart.com/, https://www.dutchvalleyfoods.com/
+# RECIPE: http://www.bettycrocker.com/recipes/ultimate-chocolate-chip-cookies/77c14e03-d8b0-4844-846d-f19304f61c57
+
+# save instruction string for future use
+ingredientString = "\nYour batch ingredients are as follows: "
 
 # Welcome message
-print("CIS312 Cookie Recipe Calculator")
+print("CIS312 COOKIE RECIPE CALCULATOR --------------------")
 
 # Set minimum for regular batch to become bulk batch
-bulkBatchSizeMin = 96
+bulkBatchSizeMin = 192
 
 # Set base quantity variables for standard batch
 standardBatch = 24  # base recipe size
@@ -46,11 +53,11 @@ unitBulkCostChocolateChip = 0.005703804300
 # Take input from user as to how many cookies
 batchSize = int(input('Please enter the batch quantity:  '))
 
-print("\nYour batch instructions are as follows: ")
 # Determine batch size, regular or bulk
 
 # Size is under min, proceed with regular pricing
 if 0 < batchSize < bulkBatchSizeMin:
+    print(ingredientString)
     print("      COST   QUANTITY  UNIT  ITEM")  # table header
     # Salted Butter
     print("{:10.2f}".format(unitCostSaltedButter * batchSize * numGSaltedButter)
@@ -74,7 +81,7 @@ if 0 < batchSize < bulkBatchSizeMin:
           , "  Vanilla")
     # Egg
     print("{:10.2f}".format(unitCostEgg * batchSize * numEaEgg)
-          , "{:10.2f}".format(numEaEgg * batchSize)
+          , "{:10.0f}".format(numEaEgg * batchSize)
           , " ea "
           , "  Eggs")
     # White Flour
@@ -101,20 +108,20 @@ if 0 < batchSize < bulkBatchSizeMin:
     print("=" * 44)  # separator
     print("$"
           , "{:8.2f}".format(unitCostSaltedButter * batchSize * numGSaltedButter
-                           + unitCostBrownSugar * batchSize * numGBrownSugar
-                           + unitCostWhiteSugar * batchSize * numGWhiteSugar
-                           + unitCostVanilla * batchSize * numTspVanilla
-                           + unitCostEgg * batchSize * numEaEgg
-                           + unitCostWhiteFlour * batchSize * numGWhiteFlour
-                           + unitCostBakingSoda * batchSize * numTspBakingSoda
-                           + unitCostSalt * batchSize * numTspSalt
-                           + unitCostChocolateChip * batchSize * numGChocolateChip)
-          , "    TOTAL COST OF BATCH"
-          )
+                             + unitCostBrownSugar * batchSize * numGBrownSugar
+                             + unitCostWhiteSugar * batchSize * numGWhiteSugar
+                             + unitCostVanilla * batchSize * numTspVanilla
+                             + unitCostEgg * batchSize * numEaEgg
+                             + unitCostWhiteFlour * batchSize * numGWhiteFlour
+                             + unitCostBakingSoda * batchSize * numTspBakingSoda
+                             + unitCostSalt * batchSize * numTspSalt
+                             + unitCostChocolateChip * batchSize * numGChocolateChip)
+          , "    TOTAL COST OF BATCH")
 
 
 # Size is over minimum, use bulk pricing
 elif batchSize >= bulkBatchSizeMin:
+    print(ingredientString)
     print("      COST   QUANTITY  UNIT  ITEM")  # table header
     # Salted Butter
     print("{:10.2f}".format(unitBulkCostSaltedButter * batchSize * numGSaltedButter)
@@ -130,7 +137,7 @@ elif batchSize >= bulkBatchSizeMin:
     print("{:10.2f}".format(unitBulkCostWhiteSugar * batchSize * numGWhiteSugar)
           , "{:10.2f}".format(numGWhiteSugar * batchSize)
           , " g  "
-           , "  White Sugar")
+          , "  White Sugar")
     # Vanilla
     print("{:10.2f}".format(unitBulkCostVanilla * batchSize * numTspVanilla)
           , "{:10.2f}".format(numTspVanilla * batchSize)
@@ -138,7 +145,7 @@ elif batchSize >= bulkBatchSizeMin:
           , "  Vanilla")
     # Egg
     print("{:10.2f}".format(unitBulkCostEgg * batchSize * numEaEgg)
-          , "{:10.2f}".format(numEaEgg * batchSize)
+          , "{:10.0f}".format(numEaEgg * batchSize)
           , " ea "
           , "  Eggs")
     # White Flour
@@ -165,17 +172,37 @@ elif batchSize >= bulkBatchSizeMin:
     print("=" * 44)  # separator
     print("$"
           , "{:8.2f}".format(unitBulkCostSaltedButter * batchSize * numGSaltedButter
-                           + unitBulkCostBrownSugar * batchSize * numGBrownSugar
-                           + unitBulkCostWhiteSugar * batchSize * numGWhiteSugar
-                           + unitBulkCostVanilla * batchSize * numTspVanilla
-                           + unitBulkCostEgg * batchSize * numEaEgg
-                           + unitBulkCostWhiteFlour * batchSize * numGWhiteFlour
-                           + unitBulkCostBakingSoda * batchSize * numTspBakingSoda
-                           + unitBulkCostSalt * batchSize * numTspSalt
-                           + unitBulkCostChocolateChip * batchSize * numGChocolateChip)
-          , "    TOTAL COST OF BATCH"
-          )
+                             + unitBulkCostBrownSugar * batchSize * numGBrownSugar
+                             + unitBulkCostWhiteSugar * batchSize * numGWhiteSugar
+                             + unitBulkCostVanilla * batchSize * numTspVanilla
+                             + unitBulkCostEgg * batchSize * numEaEgg
+                             + unitBulkCostWhiteFlour * batchSize * numGWhiteFlour
+                             + unitBulkCostBakingSoda * batchSize * numTspBakingSoda
+                             + unitBulkCostSalt * batchSize * numTspSalt
+                             + unitBulkCostChocolateChip * batchSize * numGChocolateChip)
+          , "    TOTAL COST OF BATCH")
 
 # batchSize entered was out of range, error!
 else:
-    print("I'm sorry, you cannot make that many cookies!")
+    print("**ERROR!  You made a mistake in your entry!")
+
+# Display recipe directions ---------------------------------------------------
+if batchSize > 0:  # only display if batchSize was valid
+    # print cookie ascii
+    print("""\n                       _,._
+                  __.o`   o`”-.
+               .-O o `"-.o   O )_,._
+              ( o   O  o )--.-"`O   o"-.
+               '--------'  (   o  O    o)
+                            `----------`""")
+    print("1.\tHeat oven to 375ºF.")  # step 1
+    print("2.\tMix sugars, butter, vanilla and egg in large bowl. Stir in flour, "
+          "\n\t\tbaking soda and salt (dough will be stiff)."
+          "\n\t\tStir in nuts and chocolate chips.")  # step 2
+    print("3.\tDrop dough by rounded tablespoonfuls onto cookie sheet.")  # step 3
+    print("4.\tBake 8 to 10 minutes or until light brown (centers will be soft)."
+          "\n\t\tCool slightly; remove from cookie sheet. Cool on wire rack.")  # step 4
+    print("\nFor additional details, visit: "
+          , "\nhttp://www.bettycrocker.com/recipes/ultimate-chocolate-chip-cookies/77c14e03-d8b0-4844-846d-f19304f61c57")
+else:  # batchSize was incorrect
+    print("Please try again.")
