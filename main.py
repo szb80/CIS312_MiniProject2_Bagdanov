@@ -1,6 +1,7 @@
 # CIS312 Final Project
 # Created by Seth Bagdanov 2/7/2017
 # Calculates and displays a recipe based on the batch size
+# Python v3.6
 #
 # REFERENCES -----
 # PRICING: http://grocery.walmart.com/, https://www.dutchvalleyfoods.com/
